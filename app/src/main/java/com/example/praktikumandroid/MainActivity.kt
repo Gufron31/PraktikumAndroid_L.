@@ -1,5 +1,6 @@
 package com.example.praktikumandroid
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -23,13 +24,24 @@ class MainActivity : AppCompatActivity() {
 
         simpanButton.setOnClickListener{
             val nama = namaEditText.text.toString()
+            val email = emailEditText.text.toString()
             var jumlahsks = jumlahsksEditText.text.toString().toInt()
 
             jumlahsks = 160 - jumlahsks
             Toast.makeText (this, "Sisa SKS", Toast.LENGTH_SHORT).show()
+
+            val intent = Intent (this, ResultActivity::class.java)
+            intent.putExtra("nama",nama)
+            intent.putExtra("nama",email)
+            intent.putExtra("nama",jumlahsks)
+            startActivity(intent)
+
         }
         batalButton.setOnClickListener {
             Toast.makeText(this, "hai...", Toast.LENGTH_SHORT).show()
-        }
     }
 }
+
+    private fun intent(mainActivity: MainActivity, java: Class<ResultActivity>): Intent? {
+
+    }
